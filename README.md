@@ -1,2 +1,4 @@
 # GE-Proton-bash-updater
-downloads the latest version of GE-Proton for you
+Downloads the latest version of GE-Proton for you.
+Best used with a cronjob or some other autostarter software. 
+Uses KDE's kdialog for GUI stuff but those parts can be easily removed.
