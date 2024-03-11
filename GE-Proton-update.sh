@@ -3,7 +3,7 @@ PROTONVERSION=$(curl -s https://api.github.com/repos/GloriousEggroll/proton-ge-c
 if [ -d ~/.steam/root/compatibilitytools.d/$PROTONVERSION ]; then
     echo "$PROTONVERSION exists."
     echo "Nothing to do."
-else\
+else
     # dialog popup. Only proceeds when user clicks on "ok".
     kdialog  --msgbox "New GE-Proton version will now be added. Check ~/.steam/root/compatibilitytools.d/ and do not forget to restart Steam!"
     # move older versions if any exist (I hope you restart your pc sometimes because an "rm" requires sudo here)
