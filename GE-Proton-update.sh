@@ -5,7 +5,7 @@ if [ -d ~/.steam/root/compatibilitytools.d/$PROTONVERSION ]; then
     echo "Nothing to do."
 else
     # move older versions if any exist (I hope you restart your pc sometimes because an "rm" requires sudo here)
-    mv ~/.steam/root/compatibilitytools.d/GE-Proton* /tmp
+    mv ~/.steam/root/compatibilitytools.d/*GE-Proton* /tmp
     # make tmp working directory
     mkdir /tmp/proton-ge-custom
     cd /tmp/proton-ge-custom
@@ -21,9 +21,6 @@ else
     mkdir -p ~/.steam/root/compatibilitytools.d
     # extract proton tarball to steam directory
     tar -xf GE-Proton*.tar.gz -C ~/.steam/root/compatibilitytools.d/
-    mkdir -p ~/.steam/root/compatibilitytools.d/Latest-GE-Proton
-    mv ~/.steam/root/compatibilitytools.d/$PROTONVERSION/* ~/.steam/root/compatibilitytools.d/Latest-GE-Proton
-    rmdir ~/.steam/root/compatibilitytools.d/$PROTONVERSION
-    sed -i s/$PROTONVERSION/GE-Proton/g ~/.steam/root/compatibilitytools.d/Latest-GE-Proton/compatibilitytool.vdf
+    sed -i s/$PROTONVERSION/GE-Proton/g ~/.steam/root/compatibilitytools.d/$PROTONVERSION/compatibilitytool.vdf
     echo "New GE-Proton version added!"
 fi
