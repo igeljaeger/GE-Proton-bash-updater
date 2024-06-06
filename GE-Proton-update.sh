@@ -23,6 +23,10 @@ else
     mkdir -p ~/.steam/root/compatibilitytools.d
     # extract proton tarball to steam directory
     tar -xf GE-Proton*.tar.gz -C ~/.steam/root/compatibilitytools.d/
-    echo "New GE-Proton version added!"
+    mkdir -p ~/.steam/root/compatibilitytools.d/Latest-GE-Proton
+	mv ~/.steam/root/compatibilitytools.d/$PROTONVERSION/* ~/.steam/root/compatibilitytools.d/Latest-GE-Proton
+	rmdir ~/.steam/root/compatibilitytools.d/$PROTONVERSION
+	sed -i s/$PROTONVERSION/GE-Proton/g ~/.steam/root/compatibilitytools.d/Latest-GE-Proton/compatibilitytool.vdf
+	echo "New GE-Proton version added!"
     kdialog  --passivepopup "New GE-Proton version added!" 5
 fi
