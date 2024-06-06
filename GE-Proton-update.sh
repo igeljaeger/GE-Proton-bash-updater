@@ -4,8 +4,6 @@ if [ -d ~/.steam/root/compatibilitytools.d/$PROTONVERSION ]; then
     echo "$PROTONVERSION exists."
     echo "Nothing to do."
 else
-    # dialog popup. Only proceeds when user clicks on "ok".
-    kdialog  --msgbox "New GE-Proton version will now be added. Check ~/.steam/root/compatibilitytools.d/ and do not forget to restart Steam!"
     # move older versions if any exist (I hope you restart your pc sometimes because an "rm" requires sudo here)
     mv ~/.steam/root/compatibilitytools.d/GE-Proton* /tmp
     # make tmp working directory
@@ -24,9 +22,8 @@ else
     # extract proton tarball to steam directory
     tar -xf GE-Proton*.tar.gz -C ~/.steam/root/compatibilitytools.d/
     mkdir -p ~/.steam/root/compatibilitytools.d/Latest-GE-Proton
-	mv ~/.steam/root/compatibilitytools.d/$PROTONVERSION/* ~/.steam/root/compatibilitytools.d/Latest-GE-Proton
-	rmdir ~/.steam/root/compatibilitytools.d/$PROTONVERSION
-	sed -i s/$PROTONVERSION/GE-Proton/g ~/.steam/root/compatibilitytools.d/Latest-GE-Proton/compatibilitytool.vdf
-	echo "New GE-Proton version added!"
-    kdialog  --passivepopup "New GE-Proton version added!" 5
+    mv ~/.steam/root/compatibilitytools.d/$PROTONVERSION/* ~/.steam/root/compatibilitytools.d/Latest-GE-Proton
+    rmdir ~/.steam/root/compatibilitytools.d/$PROTONVERSION
+    sed -i s/$PROTONVERSION/GE-Proton/g ~/.steam/root/compatibilitytools.d/Latest-GE-Proton/compatibilitytool.vdf
+    echo "New GE-Proton version added!"
 fi
